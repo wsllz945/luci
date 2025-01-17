@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-03 05:11+0200\n"
-"PO-Revision-Date: 2021-12-03 17:34+0000\n"
-"Last-Translator: Simona Iacob <s@zp1.net>\n"
+"PO-Revision-Date: 2023-04-23 07:03+0000\n"
+"Last-Translator: olimpiumarius <oliver_magnum44@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/openwrt/"
 "luciapplicationssplash/ro/>\n"
 "Language: ro\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 #: applications/luci-app-splash/luasrc/view/splash/splash.htm:53
 msgid "%s with the operator of this access point."
@@ -265,7 +265,7 @@ msgstr ""
 
 #: applications/luci-app-splash/luasrc/model/cbi/splash/splash.lua:77
 msgid "Netmask"
-msgstr "Masca de rețea"
+msgstr "Mască de rețea"
 
 #: applications/luci-app-splash/luasrc/model/cbi/splash/splash.lua:37
 msgid "Network"
@@ -390,15 +390,15 @@ msgstr "Trafic de intrare/ieșire"
 
 #: applications/luci-app-splash/luasrc/model/cbi/splash/splash.lua:14
 msgid "Upload limit"
-msgstr ""
+msgstr "Limita de încărcare"
 
 #: applications/luci-app-splash/luasrc/view/splash/splash.htm:108
 msgid "Usage Agreement"
-msgstr ""
+msgstr "Acord de utilizare"
 
 #: applications/luci-app-splash/luasrc/view/splash/splash.htm:75
 msgid "Welcome"
-msgstr ""
+msgstr "Bine ați venit"
 
 #: applications/luci-app-splash/luasrc/model/cbi/splash/splash.lua:53
 msgid "Whitelist"
@@ -406,7 +406,7 @@ msgstr "Lista albă"
 
 #: applications/luci-app-splash/luasrc/view/splash/splash.htm:77
 msgid "You are now connected to the free wireless mesh network"
-msgstr ""
+msgstr "Sunteți acum conectat la rețeaua mesh wireless gratuită"
 
 #: applications/luci-app-splash/luasrc/model/cbi/splash/splashtext.lua:13
 msgid ""
@@ -414,61 +414,66 @@ msgid ""
 "possible to use the following markers: ###COMMUNITY###, ###COMMUNITY_URL###, "
 "###CONTACTURL###, ###LEASETIME###, ###LIMIT### and ###ACCEPT###."
 msgstr ""
+"Puteți introduce aici propriul text care va fi afișat clienților.<br />Este "
+"posibil să folosiți următoarele marcaje: ###COMMUNITY###, ###COMMUNITY_URL###"
+", ###CONTACTURL###, ###LEASETIME###, ###LIMIT### și ###ACCEPT###."
 
 #: applications/luci-app-splash/luasrc/view/splash/blocked.htm:14
 msgid ""
 "Your access to this network has been blocked, most likely because you did "
 "something that our rules explicitly forbid."
 msgstr ""
+"Accesul dumneavoastră la această rețea a fost blocat, cel mai probabil "
+"pentru că ați făcut ceva ce regulile noastre interzic în mod explicit."
 
 #: applications/luci-app-splash/luasrc/view/splash/splash.htm:48
 msgid "Your bandwidth is limited to"
-msgstr ""
+msgstr "Lățimea de bandă este limitată la"
 
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:176
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:178
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:243
 msgid "blacklisted"
-msgstr ""
+msgstr "lista neagră"
 
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:235
 msgid "expired"
-msgstr ""
+msgstr "a expirat"
 
 #: applications/luci-app-splash/luasrc/model/cbi/splash/splash.lua:77
 msgid "optional when using host addresses"
-msgstr ""
+msgstr "opțional atunci când se utilizează adrese gazdă"
 
 #: applications/luci-app-splash/luasrc/view/splash/splash.htm:85
 msgid "perform any kind of illegal activities"
-msgstr ""
+msgstr "să desfășoare orice fel de activități ilegale"
 
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:170
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:173
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:242
 msgid "splashed"
-msgstr ""
+msgstr "stropit"
 
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:171
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:245
 msgid "temporarily blocked"
-msgstr ""
+msgstr "blocat temporar"
 
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:230
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:231
 msgid "unknown"
-msgstr ""
+msgstr "necunoscut"
 
 #: applications/luci-app-splash/luasrc/view/splash/splash.htm:83
 msgid "use filesharing applications on this network"
-msgstr ""
+msgstr "să utilizeze aplicații de partajare a fișierelor în această rețea"
 
 #: applications/luci-app-splash/luasrc/view/splash/splash.htm:84
 msgid "waste bandwidth with unnecessary downloads or streams"
-msgstr ""
+msgstr "irosirea lățimii de bandă cu descărcări sau fluxuri inutile"
 
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:165
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:167
 #: applications/luci-app-splash/luasrc/view/admin_status/splash.htm:241
 msgid "whitelisted"
-msgstr ""
+msgstr "lista albă"

@@ -17,6 +17,15 @@ function getGroups() {
     });
 }
 
+function getDevices(network) {
+    if (network.isBridge()) {
+        var devices = network.getDevices();
+        return devices ? devices : [];
+    } else {
+        return L.toArray(network.getDevice());
+    }
+}
+
 var CBIZoneSelect = form.ListValue.extend({
 	__name__: 'CBI.ZoneSelect',
 
@@ -105,7 +114,7 @@ var CBIZoneSelect = form.ListValue.extend({
 					'class': 'ifacebadge' + (network.getName() == this.network ? ' ifacebadge-active' : '')
 				}, network.getName() + ': ');
 
-				var devices = network.isBridge() ? network.getDevices() : L.toArray(network.getDevice());
+				var devices = getDevices(network);
 
 				for (var k = 0; k < devices.length; k++) {
 					span.appendChild(E('img', {
@@ -187,9 +196,10 @@ var CBIZoneSelect = form.ListValue.extend({
 						emptyval.setAttribute('data-value', '');
 					}
 
-					L.dom.content(emptyval.querySelector('span'), [
-						E('strong', _('Device')), E('span', ' (%s)'.format(_('input')))
-					]);
+					if (opt[0].allowlocal)
+						L.dom.content(emptyval.querySelector('span'), [
+							E('strong', _('Device')), E('span', ' (%s)'.format(_('input')))
+						]);
 
 					L.dom.content(anyval.querySelector('span'), [
 						E('strong', _('Any zone')), E('span', ' (%s)'.format(_('forward')))
@@ -245,7 +255,7 @@ var CBIZoneForwards = form.DummyValue.extend({
 				'class': 'ifacebadge' + (network.getName() == this.network ? ' ifacebadge-active' : '')
 			}, network.getName() + ': ');
 
-			var subdevs = network.isBridge() ? network.getDevices() : L.toArray(network.getDevice());
+			var subdevs = getDevices(network);
 
 			for (var k = 0; k < subdevs.length && subdevs[k]; k++) {
 				span.appendChild(E('img', {
@@ -312,6 +322,9 @@ var CBIZoneForwards = form.DummyValue.extend({
 		if (!dzones.length)
 			dzones.push(E('label', { 'class': 'zonebadge zonebadge-empty' },
 				E('strong', this.defaults.getForward())));
+		else
+			dzones.push(E('label', { 'class': 'zonebadge zonebadge-empty' },
+				E('strong', '%s %s'.format(this.defaults.getForward(), ('all others')))));
 
 		return E('div', { 'class': 'zone-forwards' }, [
 			E('div', { 'class': 'zone-src' }, this.renderZone(zone)),
@@ -338,7 +351,7 @@ var CBINetworkSelect = form.ListValue.extend({
 
 	renderIfaceBadge: function(network) {
 		var span = E('span', { 'class': 'ifacebadge' }, network.getName() + ': '),
-		    devices = network.isBridge() ? network.getDevices() : L.toArray(network.getDevice());
+		    devices = getDevices(network);
 
 		for (var j = 0; j < devices.length && devices[j]; j++) {
 			span.appendChild(E('img', {
@@ -536,7 +549,7 @@ var CBIDeviceSelect = form.ListValue.extend({
 		}
 
 		if (!this.nocreate) {
-			var keys = Object.keys(checked).sort();
+			var keys = Object.keys(checked).sort(L.naturalCompare);
 
 			for (var i = 0; i < keys.length; i++) {
 				if (choices.hasOwnProperty(keys[i]))

@@ -74,7 +74,7 @@ return view.extend({
 					'data-tab-title': multiple ? title : null,
 					'data-plugin': plugin,
 					'data-plugin-instance': plugin_instance,
-					'data-is-index': i ? null : true,
+					'data-is-index': i || render_instances.length == 1 ? null : true,
 					'cbi-tab-active': function(ev) { activeInstance = ev.target.getAttribute('data-plugin-instance') }
 				}, blobs.map(function(blob) {
 					return E('img', {
@@ -182,7 +182,7 @@ return view.extend({
 				E('button', {
 					'class': 'cbi-button',
 					'click': function(ev) { location.href = 'collectd' }
-				}, [ _('Setup collectd') ])
+				}, [ _('Set up collectd') ])
 			])
 		]);
 	},
@@ -243,6 +243,10 @@ return view.extend({
 		]);
 
 		requestAnimationFrame(L.bind(this.updateGraphs, this, hostSel, spanSel, timeSel, graphDiv));
+
+		var resizeTimeout;
+		var rgCallback = L.bind(this.refreshGraphs, this, hostSel, spanSel, timeSel, graphDiv);
+		addEventListener('resize', function() { clearTimeout(resizeTimeout); resizeTimeout = setTimeout(rgCallback, 250); });
 
 		return view;
 	},
